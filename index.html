@@ -4,23 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pivot — Find what’s worth your time</title>
-
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="app">
 
     <!-- HOME SCREEN -->
-    <div id="homeScreen" class="screen active">
+    <section id="homeScreen" class="screen active">
       <div class="topbar">
         <div class="brand">Pivot</div>
-        <button class="icon-btn">📍</button>
+        <button class="icon-btn" aria-label="Location">📍</button>
       </div>
 
-      <section class="hero">
-        <h1>Your plans changed.<br>Now what?</h1>
+      <header class="hero">
+        <h1>Your plans changed.<br />Now what?</h1>
         <p>Let’s find something worth your time.</p>
-      </section>
+      </header>
 
       <section class="section">
         <label>How much time do you have?</label>
@@ -57,38 +56,74 @@
       <button id="findBtn" class="primary-btn" disabled>
         Find something worthwhile
       </button>
-    </div>
+
+      <section class="quick-start">
+        <p>Short on time? Try one of these:</p>
+
+        <button
+          class="quick-option"
+          data-time="1 hr"
+          data-mood="Coffee"
+          data-distance="15 min"
+        >
+          1 hour • Coffee + walk
+        </button>
+
+        <button
+          class="quick-option"
+          data-time="2 hrs"
+          data-mood="Local"
+          data-distance="15 min"
+        >
+          2 hours • Local explore
+        </button>
+
+        <button
+          class="quick-option"
+          data-time="30 min"
+          data-mood="Relax"
+          data-distance="5 min"
+        >
+          30 min • Quick reset
+        </button>
+      </section>
+    </section>
 
     <!-- RESULTS SCREEN -->
-    <div id="resultsScreen" class="screen">
+    <section id="resultsScreen" class="screen">
       <div class="topbar">
-        <button id="backToHome" class="icon-btn">←</button>
+        <button id="backToHome" class="icon-btn" aria-label="Back">←</button>
         <div class="brand">Pivot</div>
-        <div></div>
+        <div class="topbar-spacer"></div>
       </div>
 
-      <div id="resultsMeta" class="results-meta"></div>
+      <p id="resultsMeta" class="results-meta"></p>
       <h2 class="results-title">Here are a few good options</h2>
+      <p class="results-subtext">Curated for the time you have right now.</p>
 
       <div id="resultsList"></div>
+
       <button id="regenerateBtn" class="secondary-btn">
-      Try something different
+        Try something different
       </button>
-    </div>
+    </section>
 
     <!-- DETAIL SCREEN -->
-    <div id="detailScreen" class="screen">
+    <section id="detailScreen" class="screen">
       <div class="topbar">
-        <button id="backToResults" class="icon-btn">←</button>
+        <button id="backToResults" class="icon-btn" aria-label="Back">←</button>
         <div class="brand">Pivot</div>
-        <button class="icon-btn">♡</button>
+        <button class="icon-btn" aria-label="Save">♡</button>
       </div>
 
       <div id="detailImage" class="detail-image"></div>
 
       <div class="detail-body">
-        <h2 id="detailTitle"></h2>
-        <p id="detailSubtitle"></p>
+        <div id="detailTags" class="tag-row"></div>
+
+        <h2 id="detailTitle" class="detail-title"></h2>
+        <p id="detailSubtitle" class="detail-subtitle"></p>
+        <p id="detailMeta" class="detail-meta"></p>
 
         <section class="detail-section">
           <h3>Why this works</h3>
@@ -100,9 +135,15 @@
           <div id="detailPlan"></div>
         </section>
 
+        <section class="detail-section">
+          <h3>Good to know</h3>
+          <ul id="detailNotes" class="detail-notes"></ul>
+        </section>
+
         <button class="primary-btn">Choose this plan</button>
+        <button id="seeOtherOptions" class="secondary-btn">See other options</button>
       </div>
-    </div>
+    </section>
 
   </div>
 
