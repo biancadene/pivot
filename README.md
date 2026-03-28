@@ -1,65 +1,36 @@
 # Pivot
 
-**Find what’s worth your time — right now.**
+**Find what’s worth your time - right now.**
 
----
+## Overview
 
-## ✨ Overview
+Pivot is a lightweight travel discovery app concept designed for a very specific problem:
 
-Pivot is a simple web app designed for a very real travel problem:
+When plans change unexpectedly in a new city, it can be hard to quickly decide what is actually worth doing nearby.
 
-When your plans change unexpectedly, it's hard to quickly decide what’s actually worth doing nearby.
+Instead of overwhelming users with endless options, Pivot focuses on fewer, more relevant suggestions based on time, mood, and distance.
 
-Instead of overwhelming users with endless options like traditional map apps, Pivot focuses on:
+## Features
 
-→ fewer, better, more relevant suggestions  
-→ fast decision-making  
-→ calm, guided exploration  
-
----
-
-## 💡 The Problem
-
-When traveling or exploring a new place:
-
-- plans get cancelled  
-- schedules change  
-- you suddenly have free time  
-
-Most tools (like Google Maps) show too many options, making it harder—not easier—to decide.
-
----
-
-## 🚀 The Solution
-
-Pivot helps users quickly find worthwhile things to do based on:
-
-- ⏱ time available  
-- 🎯 mood / intent  
-- 📍 distance  
-
-It then returns a **small curated list** of options, each with a clear explanation of *why it fits*.
-
----
-
-## 🧠 Key Features
-
-- Guided selection (time, mood, distance)
-- Curated results (not endless lists)
+- Time, mood, and distance filters
+- Curated recommendation cards
 - “Why this fits” explanations
-- Simple navigation between screens
-- Clean, calm UI focused on decision-making
+- Detail screen with a suggested mini plan
+- Regenerate button for alternate options
+- Clean mobile-first interface
 
----
+## Tech Stack
 
-## 🛠 Tech Stack
+- HTML
+- CSS
+- Vanilla JavaScript
 
-- HTML  
-- CSS  
-- JavaScript (vanilla)
+## Project Structure
 
-No frameworks — intentionally lightweight and easy to run.
-
----
-
-## 📦 Project Structure
+```text
+pivot-app/
+  index.html
+  style.css
+  script.js
+  README.md
+  assets/
