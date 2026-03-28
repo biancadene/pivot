@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pivot — Find what’s worth your time</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+
+    <!-- HOME SCREEN -->
+    <div id="homeScreen" class="screen active">
+      <div class="topbar">
+        <div class="brand">Pivot</div>
+        <button class="icon-btn">📍</button>
+      </div>
+
+      <section class="hero">
+        <h1>Your plans changed.<br>Now what?</h1>
+        <p>Let’s find something worth your time.</p>
+      </section>
+
+      <section class="section">
+        <label>How much time do you have?</label>
+        <div class="pill-group" id="timeGroup">
+          <button class="pill" data-value="30 min">30 min</button>
+          <button class="pill" data-value="1 hr">1 hr</button>
+          <button class="pill" data-value="2 hrs">2 hrs</button>
+          <button class="pill" data-value="Half day">Half day</button>
+        </div>
+      </section>
+
+      <section class="section">
+        <label>What are you in the mood for?</label>
+        <div class="pill-group" id="moodGroup">
+          <button class="pill" data-value="Relax">Relax</button>
+          <button class="pill" data-value="Explore">Explore</button>
+          <button class="pill" data-value="Eat">Eat</button>
+          <button class="pill" data-value="Coffee">Coffee</button>
+          <button class="pill" data-value="Local">Local</button>
+          <button class="pill" data-value="Nature">Nature</button>
+          <button class="pill" data-value="Kid-friendly">Kid-friendly</button>
+        </div>
+      </section>
+
+      <section class="section">
+        <label>How far do you want to go?</label>
+        <div class="pill-group" id="distanceGroup">
+          <button class="pill" data-value="5 min">5 min</button>
+          <button class="pill" data-value="15 min">15 min</button>
+          <button class="pill" data-value="30 min">30 min</button>
+        </div>
+      </section>
+
+      <button id="findBtn" class="primary-btn" disabled>
+        Find something worthwhile
+      </button>
+    </div>
+
+    <!-- RESULTS SCREEN -->
+    <div id="resultsScreen" class="screen">
+      <div class="topbar">
+        <button id="backToHome" class="icon-btn">←</button>
+        <div class="brand">Pivot</div>
+        <div></div>
+      </div>
+
+      <div id="resultsMeta" class="results-meta"></div>
+      <h2 class="results-title">Here are a few good options</h2>
+
+      <div id="resultsList"></div>
+    </div>
+
+    <!-- DETAIL SCREEN -->
+    <div id="detailScreen" class="screen">
+      <div class="topbar">
+        <button id="backToResults" class="icon-btn">←</button>
+        <div class="brand">Pivot</div>
+        <button class="icon-btn">♡</button>
+      </div>
+
+      <div id="detailImage" class="detail-image"></div>
+
+      <div class="detail-body">
+        <h2 id="detailTitle"></h2>
+        <p id="detailSubtitle"></p>
+
+        <section class="detail-section">
+          <h3>Why this works</h3>
+          <p id="detailWhy"></p>
+        </section>
+
+        <section class="detail-section">
+          <h3>Suggested mini plan</h3>
+          <div id="detailPlan"></div>
+        </section>
+
+        <button class="primary-btn">Choose this plan</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
