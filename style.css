@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+  font-family: system-ui;
+  background: #F4F1EC;
+}
+
+.app {
+  max-width: 420px;
+  margin: auto;
+  padding: 20px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.brand {
+  font-weight: bold;
+  color: #1F3D3A;
+}
+
+.hero h1 {
+  font-size: 28px;
+  color: #1F3D3A;
+}
+
+.hero p {
+  color: #6B6B6B;
+}
+
+.section {
+  margin: 20px 0;
+}
+
+.pill-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pill {
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.pill.selected {
+  background: #1F3D3A;
+  color: white;
+}
+
+.primary-btn {
+  width: 100%;
+  padding: 15px;
+  border-radius: 999px;
+  background: #1F3D3A;
+  color: white;
+  border: none;
+  margin-top: 20px;
+}
+
+.screen {
+  display: none;
+}
+
+.screen.active {
+  display: block;
+}
+
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 16px;
+  margin: 15px 0;
+}
+
+.detail-image {
+  height: 200px;
+  background: #ddd;
+}
