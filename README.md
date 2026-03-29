@@ -1,6 +1,10 @@
 # Pivot
 
-**Find what’s worth your time - right now.**
+**Find what’s worth your time - right now**
+
+## Live Demo
+
+https://biancadene.github.io/pivot/
 
 ## Overview
 
