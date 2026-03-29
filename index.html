@@ -4,16 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pivot — Find what’s worth your time</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="page-shell">
-    <div class="app">
+    <main class="app">
 
       <!-- HOME SCREEN -->
       <section id="homeScreen" class="screen active">
         <div class="topbar">
-          <div class="brand">Pivot</div>
+          <div class="brand-wrap">
+            <div class="brand-mark">P</div>
+            <div class="brand">Pivot</div>
+          </div>
           <button class="icon-btn" aria-label="Location">📍</button>
         </div>
 
@@ -96,7 +102,10 @@
       <section id="resultsScreen" class="screen">
         <div class="topbar">
           <button id="backToHome" class="icon-btn" aria-label="Back">←</button>
-          <div class="brand">Pivot</div>
+          <div class="brand-wrap brand-center">
+            <div class="brand-mark small">P</div>
+            <div class="brand">Pivot</div>
+          </div>
           <div class="topbar-spacer"></div>
         </div>
 
@@ -115,7 +124,10 @@
       <section id="detailScreen" class="screen">
         <div class="topbar">
           <button id="backToResults" class="icon-btn" aria-label="Back">←</button>
-          <div class="brand">Pivot</div>
+          <div class="brand-wrap brand-center">
+            <div class="brand-mark small">P</div>
+            <div class="brand">Pivot</div>
+          </div>
           <button class="icon-btn" aria-label="Save">♡</button>
         </div>
 
@@ -148,7 +160,7 @@
         </div>
       </section>
 
-    </div>
+    </main>
   </div>
 
   <script src="script.js"></script>
