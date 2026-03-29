@@ -1,35 +1,60 @@
 # Pivot
 
-**Find what’s worth your time - right now**
+**Find what’s worth your time - where you are**
 
-## Live Demo
+A simple way to decide what to do when plans change.
 
-https://biancadene.github.io/pivot/
+---
 
-## Overview
+## 🌐 Live Demo
 
-Pivot is a lightweight travel discovery app concept designed for a very specific problem:
+👉 https://biancadene.github.io/pivot/
 
-When plans change unexpectedly in a new city, it can be hard to quickly decide what is actually worth doing nearby.
+---
 
-Instead of overwhelming users with endless options, Pivot focuses on fewer, more relevant suggestions based on time, mood, and distance.
+## 🧠 The Problem
 
-## Features
+When plans change unexpectedly in a new city, deciding what to do next becomes surprisingly difficult.
 
-- Time, mood, and distance filters
-- Curated recommendation cards
-- “Why this fits” explanations
-- Detail screen with a suggested mini plan
-- Regenerate button for alternate options
-- Clean mobile-first interface
+Most tools (like maps or review apps) offer too many options, leading to:
+- decision fatigue  
+- wasted time  
+- choices that don’t match your situation  
 
-## Tech Stack
+---
 
-- HTML
-- CSS
-- Vanilla JavaScript
+## 💡 The Idea
 
-## Project Structure
+Pivot simplifies decision-making by focusing on **fewer, more relevant options** based on:
+
+- how much time you have  
+- your current mood  
+- how far you want to go  
+
+Instead of overwhelming users, Pivot helps them quickly find something *worth their time*.
+
+---
+
+## ✨ Features
+
+- Time, mood, and distance filters  
+- Curated recommendation cards  
+- “Why this fits” explanations  
+- Detail view with a mini plan  
+- Regenerate button for alternative ideas  
+- Clean, mobile-first interface  
+
+---
+
+## 🧩 Tech Stack
+
+- HTML  
+- CSS  
+- Vanilla JavaScript  
+
+---
+
+## 📁 Project Structure
 
 ```text
 pivot-app/
