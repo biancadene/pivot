@@ -50,7 +50,7 @@ const places = [
       }
     ],
     image:
-      "linear-gradient(135deg, rgba(31,61,58,0.22), rgba(168,191,176,0.14)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80')"
+      "linear-gradient(135deg, rgba(22,63,58,0.22), rgba(169,183,172,0.15)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80')"
   },
   {
     id: 2,
@@ -84,7 +84,7 @@ const places = [
       }
     ],
     image:
-      "linear-gradient(135deg, rgba(31,61,58,0.20), rgba(217,122,90,0.14)), url('https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1200&q=80')"
+      "linear-gradient(135deg, rgba(22,63,58,0.18), rgba(199,123,97,0.14)), url('https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1200&q=80')"
   },
   {
     id: 3,
@@ -118,7 +118,7 @@ const places = [
       }
     ],
     image:
-      "linear-gradient(135deg, rgba(31,61,58,0.18), rgba(127,175,199,0.12)), url('https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=1200&q=80')"
+      "linear-gradient(135deg, rgba(22,63,58,0.18), rgba(169,183,172,0.13)), url('https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=1200&q=80')"
   },
   {
     id: 4,
@@ -152,7 +152,7 @@ const places = [
       }
     ],
     image:
-      "linear-gradient(135deg, rgba(31,61,58,0.20), rgba(127,175,199,0.14)), url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80')"
+      "linear-gradient(135deg, rgba(22,63,58,0.18), rgba(169,183,172,0.14)), url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80')"
   },
   {
     id: 5,
@@ -186,7 +186,7 @@ const places = [
       }
     ],
     image:
-      "linear-gradient(135deg, rgba(31,61,58,0.18), rgba(214,178,94,0.12)), url('https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=1200&q=80')"
+      "linear-gradient(135deg, rgba(22,63,58,0.18), rgba(199,123,97,0.1)), url('https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=1200&q=80')"
   }
 ];
 
@@ -315,9 +315,8 @@ function renderDetail(place) {
   document.getElementById("detailImage").style.background = place.image;
   document.getElementById("detailTitle").textContent = place.title;
   document.getElementById("detailSubtitle").textContent = place.subtitle;
-  document.getElementById(
-    "detailMeta"
-  ).textContent = `${place.duration} • ${place.away} • ${place.detailMood}`;
+  document.getElementById("detailMeta").textContent =
+    `${place.duration} • ${place.away} • ${place.detailMood}`;
 
   document.getElementById("detailWhy").textContent = place.why;
 
