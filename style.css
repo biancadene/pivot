@@ -31,11 +31,13 @@ button {
 }
 
 .app {
-  max-width: 430px;
+  max-width: 420px;
+  margin: 40px auto;
+  padding: 20px;
   min-height: 100vh;
-  margin: 0 auto;
-  padding: 20px 18px 32px;
-  background: var(--sand);
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  background: #f4f1ec;
 }
 
 .screen {
@@ -130,19 +132,23 @@ button {
 .primary-btn,
 .secondary-btn {
   width: 100%;
-  border: none;
   border-radius: var(--radius-pill);
   padding: 16px 18px;
   font-weight: 700;
   cursor: pointer;
-  transition: 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .primary-btn {
   margin-top: 8px;
+  border: none;
   background: var(--forest);
   color: white;
   box-shadow: var(--shadow);
+}
+
+.primary-btn:hover {
+  opacity: 0.9;
 }
 
 .primary-btn:disabled {
@@ -151,11 +157,20 @@ button {
   cursor: not-allowed;
 }
 
+.primary-btn:disabled:hover {
+  opacity: 1;
+}
+
 .secondary-btn {
   margin-top: 14px;
   background: rgba(255, 255, 255, 0.8);
   color: var(--forest);
   border: 1px solid rgba(31, 61, 58, 0.14);
+}
+
+.secondary-btn:hover {
+  background: var(--forest);
+  color: white;
 }
 
 .quick-start {
@@ -182,6 +197,11 @@ button {
   color: var(--text);
   text-align: left;
   cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.quick-option:hover {
+  transform: translateY(-1px);
 }
 
 .quick-option:last-child {
@@ -223,6 +243,12 @@ button {
   background: var(--card);
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
 .card-image,
@@ -386,14 +412,21 @@ button {
   line-height: 1.5;
 }
 
+@media (max-width: 767px) {
+  .app {
+    margin: 0 auto;
+    border-radius: 0;
+    box-shadow: none;
+    min-height: 100vh;
+  }
+}
+
 @media (min-width: 768px) {
   body {
     padding: 32px 0;
   }
 
   .app {
-    border-radius: 28px;
-    box-shadow: 0 24px 60px rgba(31, 61, 58, 0.08);
     min-height: auto;
   }
 }
