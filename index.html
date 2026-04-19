@@ -10,30 +10,41 @@
 <body>
   <div class="app">
 
-    <!-- LOADING -->
-    <div id="loading" class="loading">
-      <div class="loader-glow"></div>
-      <div class="loader-text">Pivot is reading your moment…</div>
-      <div class="loader-sub" id="loaderSub">Finding nearby energy</div>
-    </div>
-
-    <!-- MAIN -->
-    <div id="main" class="hidden">
-
-      <header class="header">
-        <h1>Pivot</h1>
-        <p id="context">Your moment is loading…</p>
-      </header>
-
-      <div class="mood">
-        <button onclick="setMood('Relax')">Relax</button>
-        <button onclick="setMood('Explore')">Explore</button>
-        <button onclick="setMood('Eat')">Eat</button>
+    <!-- HEADER -->
+    <header class="header">
+      <div class="logo">
+        <div class="logo-mark">P</div>
+        <div>
+          <h1>Pivot</h1>
+          <p id="context">Your moment is ready</p>
+        </div>
       </div>
+    </header>
 
-      <div id="results" class="results"></div>
-
+    <!-- MOOD -->
+    <div class="mood">
+      <button onclick="setMood('Relax')">Relax</button>
+      <button onclick="setMood('Explore')">Explore</button>
+      <button onclick="setMood('Eat')">Eat</button>
     </div>
+
+    <!-- HERO -->
+    <div id="hero"></div>
+
+    <!-- SECTION TITLE -->
+    <div class="section-title">Other options nearby</div>
+
+    <!-- SECONDARY -->
+    <div id="secondary"></div>
+
+    <!-- MODAL -->
+    <div id="modal" class="modal hidden">
+      <div class="modal-content">
+        <button class="close" onclick="closeModal()">✕</button>
+        <div id="modalBody"></div>
+      </div>
+    </div>
+
   </div>
 
   <script src="app.js"></script>
