@@ -1,22 +1,62 @@
 # Pivot
 
-Pivot is a real-time decision engine that helps you decide what to do based on:
-- your location
-- weather
-- mood
-- nearby places
+Pivot is a lightweight decision app that helps you figure out what to do when your plans change.
 
-## Live concept
-“When your plans change, Pivot shows you what’s worth doing right now.”
+## 🌿 What it does
 
-## Tech
-- Vanilla JS
-- OpenWeather API
-- Google Places API
-- Netlify deployment ready
+Instead of overthinking your free time, Pivot helps you quickly choose:
 
-## Run locally
-Just open index.html
+- how much time you have
+- what mood you're in
+- how far you want to go
 
-## Deploy
-Push to GitHub → connect to Netlify → deploy instantly
+Then it suggests simple, real-world options like:
+- cafés
+- walks
+- local spots
+- quick experiences nearby
+
+---
+
+## 🧠 Core idea
+
+> “When your plans change, Pivot helps you decide what’s worth your time.”
+
+---
+
+## 🖥️ Current version (MVP)
+
+This version includes:
+
+- Multi-screen mobile-style UI
+- Filter-based decision system
+- Curated experience cards
+- Detail view with simple plans
+- Airbnb-style visual hierarchy (lightweight)
+
+---
+
+## 🛠 Tech
+
+- HTML
+- CSS
+- Vanilla JavaScript
+- GitHub Pages / Netlify ready
+
+---
+
+## 🚧 What’s next
+
+Future upgrades may include:
+- real location awareness
+- weather-aware suggestions
+- map integration
+- smarter ranking of options
+- AI-assisted recommendations
+
+---
+
+## 🚀 Run locally
+
+Just open:
+
