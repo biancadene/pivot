@@ -12,8 +12,9 @@
 
     <!-- LOADING -->
     <div id="loading" class="loading">
+      <div class="loader-glow"></div>
       <div class="loader-text">Pivot is reading your moment…</div>
-      <div class="loader-sub" id="loaderSub">Finding your location</div>
+      <div class="loader-sub" id="loaderSub">Finding nearby energy</div>
     </div>
 
     <!-- MAIN -->
@@ -21,10 +22,8 @@
 
       <header class="header">
         <h1>Pivot</h1>
-        <p>What feels right right now</p>
+        <p id="context">Your moment is loading…</p>
       </header>
-
-      <div id="context" class="context"></div>
 
       <div class="mood">
         <button onclick="setMood('Relax')">Relax</button>
@@ -37,7 +36,6 @@
     </div>
   </div>
 
-  <script src="config.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
