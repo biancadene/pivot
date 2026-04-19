@@ -2,167 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pivot — Find what’s worth your time</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pivot — What should I do right now?</title>
+
+  <link rel="stylesheet" href="style.css"/>
 </head>
+
 <body>
-  <div class="page-shell">
-    <main class="app">
+  <div class="app">
 
-      <!-- HOME SCREEN -->
-      <section id="homeScreen" class="screen active">
-        <div class="topbar">
-          <div class="brand-wrap">
-            <div class="brand-mark">P</div>
-            <div class="brand">Pivot</div>
-          </div>
-          <button class="icon-btn" aria-label="Location">📍</button>
-        </div>
+    <!-- LOADING -->
+    <div id="loading" class="loading">
+      <div class="loader-text">Pivot is reading your moment…</div>
+      <div class="loader-sub" id="loaderSub">Finding your location</div>
+    </div>
 
-        <header class="hero">
-          <div class="hero-badge">travel discovery</div>
-          <h1>Your plans changed.<br />Now what?</h1>
-          <p class="hero-tagline">Find what’s worth your time — where you are</p>
-          <p class="hero-subline">A simple way to decide what to do when plans change.</p>
-        </header>
+    <!-- MAIN -->
+    <div id="main" class="hidden">
 
-        <section class="section">
-          <label>How much time do you have?</label>
-          <div class="pill-group" id="timeGroup">
-            <button class="pill" data-value="30 min">30 min</button>
-            <button class="pill" data-value="1 hr">1 hr</button>
-            <button class="pill" data-value="2 hrs">2 hrs</button>
-            <button class="pill" data-value="Half day">Half day</button>
-          </div>
-        </section>
+      <header class="header">
+        <h1>Pivot</h1>
+        <p>What feels right right now</p>
+      </header>
 
-        <section class="section">
-          <label>What are you in the mood for?</label>
-          <div class="pill-group" id="moodGroup">
-            <button class="pill" data-value="Relax">Relax</button>
-            <button class="pill" data-value="Explore">Explore</button>
-            <button class="pill" data-value="Eat">Eat</button>
-            <button class="pill" data-value="Coffee">Coffee</button>
-            <button class="pill" data-value="Local">Local</button>
-            <button class="pill" data-value="Nature">Nature</button>
-            <button class="pill" data-value="Kid-friendly">Kid-friendly</button>
-          </div>
-        </section>
+      <div id="context" class="context"></div>
 
-        <section class="section">
-          <label>How far do you want to go?</label>
-          <div class="pill-group" id="distanceGroup">
-            <button class="pill" data-value="5 min">5 min</button>
-            <button class="pill" data-value="15 min">15 min</button>
-            <button class="pill" data-value="30 min">30 min</button>
-          </div>
-        </section>
+      <div class="mood">
+        <button onclick="setMood('Relax')">Relax</button>
+        <button onclick="setMood('Explore')">Explore</button>
+        <button onclick="setMood('Eat')">Eat</button>
+      </div>
 
-        <button id="findBtn" class="primary-btn" disabled>
-          Find something worthwhile
-        </button>
+      <div id="results" class="results"></div>
 
-        <section class="quick-start">
-          <p>Short on time? Try one of these:</p>
-
-          <button
-            class="quick-option"
-            data-time="1 hr"
-            data-mood="Coffee"
-            data-distance="15 min"
-          >
-            1 hour • Coffee + walk
-          </button>
-
-          <button
-            class="quick-option"
-            data-time="2 hrs"
-            data-mood="Local"
-            data-distance="15 min"
-          >
-            2 hours • Local explore
-          </button>
-
-          <button
-            class="quick-option"
-            data-time="30 min"
-            data-mood="Relax"
-            data-distance="5 min"
-          >
-            30 min • Quick reset
-          </button>
-        </section>
-      </section>
-
-      <!-- RESULTS SCREEN -->
-      <section id="resultsScreen" class="screen">
-        <div class="topbar">
-          <button id="backToHome" class="icon-btn" aria-label="Back">←</button>
-          <div class="brand-wrap brand-center">
-            <div class="brand-mark small">P</div>
-            <div class="brand">Pivot</div>
-          </div>
-          <div class="topbar-spacer"></div>
-        </div>
-
-        <p id="resultsMeta" class="results-meta"></p>
-        <h2 class="results-title">Here are a few good options</h2>
-        <p class="results-subtext">Curated for the time you have right now.</p>
-
-        <div id="resultsList"></div>
-
-        <button id="regenerateBtn" class="secondary-btn">
-          Try something different
-        </button>
-      </section>
-
-      <!-- DETAIL SCREEN -->
-      <section id="detailScreen" class="screen">
-        <div class="topbar">
-          <button id="backToResults" class="icon-btn" aria-label="Back">←</button>
-          <div class="brand-wrap brand-center">
-            <div class="brand-mark small">P</div>
-            <div class="brand">Pivot</div>
-          </div>
-          <button class="icon-btn" aria-label="Save">♡</button>
-        </div>
-
-        <div id="detailImage" class="detail-image"></div>
-
-        <div class="detail-body">
-          <div id="detailTags" class="tag-row"></div>
-
-          <h2 id="detailTitle" class="detail-title"></h2>
-          <p id="detailSubtitle" class="detail-subtitle"></p>
-          <p id="detailMeta" class="detail-meta"></p>
-
-          <section class="detail-section">
-            <h3>Why this works</h3>
-            <p id="detailWhy"></p>
-          </section>
-
-          <section class="detail-section">
-            <h3>Suggested mini plan</h3>
-            <div id="detailPlan"></div>
-          </section>
-
-          <section class="detail-section">
-            <h3>Good to know</h3>
-            <ul id="detailNotes" class="detail-notes"></ul>
-          </section>
-
-          <button class="primary-btn">Choose this plan</button>
-          <button id="seeOtherOptions" class="secondary-btn">See other options</button>
-        </div>
-      </section>
-
-    </main>
+    </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
