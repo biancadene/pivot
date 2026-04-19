@@ -3,50 +3,98 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pivot — What should I do right now?</title>
+  <title>Pivot — Find what’s worth your time</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css"/>
 </head>
 
 <body>
-  <div class="app">
 
-    <!-- HEADER -->
-    <header class="header">
-      <div class="logo">
-        <div class="logo-mark">P</div>
-        <div>
-          <h1>Pivot</h1>
-          <p id="context">Your moment is ready</p>
-        </div>
-      </div>
-    </header>
+<div class="app">
 
-    <!-- MOOD -->
-    <div class="mood">
-      <button onclick="setMood('Relax')">Relax</button>
-      <button onclick="setMood('Explore')">Explore</button>
-      <button onclick="setMood('Eat')">Eat</button>
-    </div>
+  <!-- SCREEN 1: HOME -->
+  <section id="homeScreen" class="screen active">
 
-    <!-- HERO -->
-    <div id="hero"></div>
-
-    <!-- SECTION TITLE -->
-    <div class="section-title">Other options nearby</div>
-
-    <!-- SECONDARY -->
-    <div id="secondary"></div>
-
-    <!-- MODAL -->
-    <div id="modal" class="modal hidden">
-      <div class="modal-content">
-        <button class="close" onclick="closeModal()">✕</button>
-        <div id="modalBody"></div>
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo">P</div>
+        <span>Pivot</span>
       </div>
     </div>
 
-  </div>
+    <div class="hero">
+      <h1>Your plans changed.</h1>
+      <p>Find what’s worth your time — right now.</p>
+    </div>
 
-  <script src="app.js"></script>
+    <!-- FILTERS -->
+    <div class="block">
+      <h3>How much time?</h3>
+      <div class="chips" id="timeGroup"></div>
+    </div>
+
+    <div class="block">
+      <h3>Mood?</h3>
+      <div class="chips" id="moodGroup"></div>
+    </div>
+
+    <div class="block">
+      <h3>Distance?</h3>
+      <div class="chips" id="distanceGroup"></div>
+    </div>
+
+    <button id="findBtn" class="primary" disabled>Find something worthwhile</button>
+
+  </section>
+
+  <!-- SCREEN 2: RESULTS -->
+  <section id="resultsScreen" class="screen">
+
+    <div class="topbar">
+      <button id="backHome">←</button>
+      <div class="brand small">Pivot</div>
+      <div></div>
+    </div>
+
+    <p id="resultsMeta" class="meta"></p>
+
+    <h2>Good options nearby</h2>
+
+    <div id="resultsList"></div>
+
+    <button id="regenerateBtn" class="secondary">Try again</button>
+
+  </section>
+
+  <!-- SCREEN 3: DETAIL -->
+  <section id="detailScreen" class="screen">
+
+    <div class="topbar">
+      <button id="backResults">←</button>
+      <div class="brand small">Pivot</div>
+      <div></div>
+    </div>
+
+    <div id="detailHero"></div>
+
+    <div class="detail">
+      <h2 id="detailTitle"></h2>
+      <p id="detailSubtitle"></p>
+
+      <div class="card" id="detailWhy"></div>
+
+      <div class="card" id="detailPlan"></div>
+
+      <ul id="detailNotes"></ul>
+
+      <button class="primary">Choose this</button>
+    </div>
+
+  </section>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
