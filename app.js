@@ -1,87 +1,75 @@
-let state = {
-  mood: "Relax"
-};
-
-const loading = document.getElementById("loading");
-const loaderSub = document.getElementById("loaderSub");
-const main = document.getElementById("main");
-const results = document.getElementById("results");
-const context = document.getElementById("context");
-
-/* -----------------------
-   FAKE "INTELLIGENCE LAYER"
-   (this is what makes it feel magical)
-------------------------*/
+let state = { mood: "Relax" };
 
 const DATA = [
   {
-    name: "Hidden Café with Warm Light",
+    name: "Hidden Café with Calm Light",
     type: "Relax",
-    reason: "Feels calm, slow, and unhurried — perfect reset energy."
+    image: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb",
+    reason: "A slow, quiet reset space that clears your mind."
   },
   {
-    name: "Waterfront Walk at Golden Hour",
+    name: "Waterfront Walk",
     type: "Explore",
-    reason: "Open space + movement = mental clarity right now."
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+    reason: "Open air movement to reset your energy."
   },
   {
-    name: "Local Food Spot Everyone Misses",
+    name: "Local Food Spot",
     type: "Eat",
-    reason: "Simple, satisfying, no decision fatigue needed."
-  },
-  {
-    name: "Quiet Neighborhood Park Bench",
-    type: "Relax",
-    reason: "Low stimulation space to reset your mind."
-  },
-  {
-    name: "Small Street Market Loop",
-    type: "Explore",
-    reason: "Light discovery without commitment or planning."
+    image: "https://images.unsplash.com/photo-1555992336-03a23c7b20ee",
+    reason: "Simple, satisfying, no decision fatigue."
   }
 ];
 
-/* -----------------------
-   SAFE START (NO BREAKS)
-------------------------*/
+const hero = document.getElementById("hero");
+const secondary = document.getElementById("secondary");
+const context = document.getElementById("context");
 
-setTimeout(() => {
-  loaderSub.innerText = "Finding calm options nearby…";
+const modal = document.getElementById("modal");
+const modalBody = document.getElementById("modalBody");
 
-  setTimeout(() => {
-    loading.style.display = "none";
-    main.classList.remove("hidden");
-
-    render();
-  }, 900);
-}, 800);
-
-/* -----------------------
-   RENDER MAGIC
-------------------------*/
+render();
 
 function render() {
-  context.innerText = `✨ tuned to: ${state.mood}`;
+  const filtered = DATA.filter(d => d.type === state.mood);
+  const list = filtered.length ? filtered : DATA;
 
-  const filtered = DATA
-    .filter(p => p.type === state.mood);
+  const [top, ...rest] = list;
 
-  const fallback = filtered.length ? filtered : DATA;
+  // HERO
+  hero.innerHTML = `
+    <div class="hero-card" style="background-image:url('${top.image}')" onclick="openModal('${top.name}', '${top.reason}')">
+      <div class="overlay"></div>
+      <div class="hero-label">Best for you right now</div>
+      <h3>${top.name}</h3>
+      <p>${top.reason}</p>
+    </div>
+  `;
 
-  results.innerHTML = fallback.map(item => `
-    <div class="card">
-      <div class="magic">best match for you</div>
-      <div class="card-title">${item.name}</div>
-      <div class="card-reason">${item.reason}</div>
+  // SECONDARY
+  secondary.innerHTML = rest.map(item => `
+    <div class="card" onclick="openModal('${item.name}', '${item.reason}')">
+      <strong>${item.name}</strong>
+      <div style="font-size:12px;color:gray">${item.reason}</div>
     </div>
   `).join("");
-}
 
-/* -----------------------
-   MOOD SWITCH
-------------------------*/
+  context.innerText = `✨ tuned to: ${state.mood}`;
+}
 
 function setMood(m) {
   state.mood = m;
   render();
+}
+
+function openModal(name, reason) {
+  modal.classList.remove("hidden");
+  modalBody.innerHTML = `
+    <h2>${name}</h2>
+    <p>${reason}</p>
+  `;
+}
+
+function closeModal() {
+  modal.classList.add("hidden");
 }
