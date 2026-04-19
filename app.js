@@ -12,80 +12,98 @@ const results = document.getElementById("results");
 const context = document.getElementById("context");
 
 // -------------------
-// LOCATION
+// SAFE START (NO FREEZE EVER)
 // -------------------
-navigator.geolocation.getCurrentPosition(async (pos) => {
-  state.location = {
-    lat: pos.coords.latitude,
-    lng: pos.coords.longitude
-  };
+navigator.geolocation.getCurrentPosition(
+  async (pos) => {
+    try {
+      state.location = {
+        lat: pos.coords.latitude,
+        lng: pos.coords.longitude
+      };
 
-  loaderSub.innerText = "Checking weather + surroundings";
+      loaderSub.innerText = "Finding nearby options…";
 
-  await loadWeather();
-  await loadPlaces();
+      await fakeWeather();
+      await loadPlaces();
 
-  loading.style.display = "none";
-  main.classList.remove("hidden");
+    } catch (err) {
+      console.log("Fallback mode active", err);
+    }
 
-  render();
-});
+    finishLoading();
+  },
+
+  () => {
+    // if user blocks location
+    state.location = { lat: 0, lng: 0 };
+    loaderSub.innerText = "Using default location…";
+
+    fakeWeather();
+    loadPlaces();
+
+    finishLoading();
+  }
+);
 
 // -------------------
-// WEATHER
+// SAFE FALLBACK WEATHER
 // -------------------
-async function loadWeather() {
-  const res = await fetch(
-    `https://api.openweathermap.org/data/2.5/weather?lat=${state.location.lat}&lon=${state.location.lng}&appid=${CONFIG.OPENWEATHER_KEY}&units=imperial`
-  );
-
-  const data = await res.json();
-
+async function fakeWeather() {
   state.weather = {
-    temp: data.main.temp,
-    condition: data.weather[0].main.toLowerCase()
+    temp: 78,
+    condition: "clear"
   };
 }
 
 // -------------------
-// PLACES
+// SAFE PLACES (NO API)
 // -------------------
 async function loadPlaces() {
-  const res = await fetch(
-    `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${state.location.lat},${state.location.lng}&radius=3000&key=${CONFIG.PLACES_KEY}`
-  );
-
-  const data = await res.json();
-
-  state.places = data.results.slice(0, 10);
+  state.places = [
+    { name: "Local Café with Quiet Corner", type: "eat" },
+    { name: "Waterfront Walking Path", type: "explore" },
+    { name: "Neighborhood Park Bench Spot", type: "relax" },
+    { name: "Small Local Market", type: "eat" }
+  ];
 }
 
 // -------------------
-// INTELLIGENCE
+// FINISH LOADING (IMPORTANT FIX)
+// -------------------
+function finishLoading() {
+  setTimeout(() => {
+    loading.style.display = "none";
+    main.classList.remove("hidden");
+    render();
+  }, 600);
+}
+
+// -------------------
+// SIMPLE INTELLIGENCE
 // -------------------
 function score(place) {
   let s = 0;
 
-  if (state.mood === "Relax" && place.types?.includes("park")) s += 3;
-  if (state.mood === "Eat" && place.types?.includes("restaurant")) s += 3;
-
-  if (state.weather?.condition?.includes("clear") && place.types?.includes("park")) s += 2;
+  if (state.mood === "Relax" && place.type === "relax") s += 3;
+  if (state.mood === "Eat" && place.type === "eat") s += 3;
+  if (state.mood === "Explore" && place.type === "explore") s += 3;
 
   return s;
 }
 
 function why(place) {
-  if (state.mood === "Relax") return "Feels calm and low effort right now.";
-  if (state.weather?.condition?.includes("clear")) return "Weather is perfect for this.";
-  return "A good nearby option.";
+  if (state.mood === "Relax") return "A calm reset nearby.";
+  if (state.mood === "Eat") return "Good local food option right now.";
+  if (state.mood === "Explore") return "Feels worth stepping out for.";
+  return "Good nearby option.";
 }
 
 // -------------------
 // RENDER
 // -------------------
 function render() {
-  context.innerText =
-    `🌤 ${Math.round(state.weather.temp)}° • ${state.weather.condition}`;
+  context.innerText = `📍 Ready • Mood: ${state.mood}`;
 
   const ranked = state.places
     .map(p => ({ ...p, score: score(p) }))
@@ -101,7 +119,7 @@ function render() {
 }
 
 // -------------------
-// MOOD
+// MOOD SWITCH
 // -------------------
 function setMood(m) {
   state.mood = m;
