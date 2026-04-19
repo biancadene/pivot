@@ -1,139 +1,151 @@
 body {
   margin: 0;
-  font-family: system-ui;
-  background: radial-gradient(circle at top, #f7f3ee, #e9dfd2);
+  font-family: "DM Sans", system-ui;
+  background: radial-gradient(circle at top, #f6f2ec, #e9dfd2);
   color: #1d4a44;
 }
 
-/* ATMOSPHERE */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background:
-    radial-gradient(circle at top, rgba(29,74,68,0.08), transparent 40%),
-    radial-gradient(circle at bottom, rgba(199,123,97,0.06), transparent 40%);
-  pointer-events: none;
-}
-
-/* APP */
+/* APP FRAME */
 .app {
   max-width: 430px;
   margin: auto;
-  padding: 18px;
+  padding: 16px;
 }
 
-/* HEADER */
-.header {
-  margin-bottom: 10px;
+/* SCREEN SYSTEM */
+.screen {
+  display: none;
+}
+.screen.active {
+  display: block;
+}
+
+/* TOPBAR */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+}
+
+.brand.small {
+  font-size: 14px;
 }
 
 .logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.logo-mark {
-  width: 42px;
-  height: 42px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
-  background: radial-gradient(circle at top, #2d5a53, #163f3a);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: #1d4a44;
   color: white;
-  font-weight: 800;
-}
-
-/* MOOD */
-.mood {
   display: flex;
-  gap: 8px;
-  margin: 16px 0;
+  justify-content: center;
+  align-items: center;
 }
 
-.mood button {
-  flex: 1;
-  padding: 10px;
+/* HERO */
+.hero h1 {
+  font-size: 28px;
+  margin: 10px 0 6px;
+  letter-spacing: -0.03em;
+}
+
+.hero p {
+  color: #6b6b6b;
+}
+
+/* BLOCKS */
+.block {
+  margin: 18px 0;
+}
+
+.block h3 {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+/* CHIPS */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.chip.active {
+  background: #1d4a44;
+  color: white;
+}
+
+/* BUTTONS */
+.primary {
+  width: 100%;
+  padding: 14px;
+  border-radius: 999px;
+  border: none;
+  background: #1d4a44;
+  color: white;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.secondary {
+  width: 100%;
+  padding: 12px;
   border-radius: 999px;
   border: 1px solid #ddd;
   background: white;
 }
 
-/* HERO CARD */
-.hero-card {
-  position: relative;
-  height: 180px;
-  border-radius: 20px;
-  overflow: hidden;
-  margin-bottom: 14px;
-  background-size: cover;
-  background-position: center;
-  color: white;
-  padding: 16px;
-  box-shadow: 0 14px 30px rgba(0,0,0,0.15);
-}
-
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.6));
-}
-
-.hero-card h3,
-.hero-card p,
-.hero-label {
-  position: relative;
-  z-index: 2;
-}
-
-.hero-label {
-  font-size: 11px;
-  background: rgba(255,255,255,0.2);
-  display: inline-block;
-  padding: 4px 8px;
-  border-radius: 999px;
-}
-
-/* SECONDARY */
-.section-title {
-  margin: 18px 0 10px;
-  font-size: 12px;
-  color: gray;
-}
-
+/* CARDS */
 .card {
   background: white;
-  padding: 14px;
   border-radius: 16px;
+  padding: 14px;
   margin-bottom: 10px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.06);
 }
 
-/* MODAL */
-.modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.4);
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-}
-
-.modal-content {
+/* RESULT IMAGE CARD (AIRBNB FEEL) */
+.result-card {
   background: white;
-  width: 100%;
-  max-width: 430px;
-  border-radius: 18px 18px 0 0;
-  padding: 16px;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 14px;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.08);
 }
 
-.close {
-  border: none;
-  background: none;
-  font-size: 18px;
-  float: right;
+.result-img {
+  height: 140px;
+  background-size: cover;
+  background-position: center;
 }
 
-.hidden { display: none; }
+/* DETAIL */
+.detail {
+  padding: 10px 0;
+}
+
+#detailHero {
+  height: 200px;
+  border-radius: 18px;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 14px;
+}
